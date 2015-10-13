@@ -14,3 +14,9 @@ touch ImageWrite.pro src/main.cpp
 
 git status
 git add .
+
+qtcreator ImageWrite.pro
+
+touch include/ImageWrite.h src/ImageWrite.cpp
+git add .
+
