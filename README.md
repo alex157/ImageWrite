@@ -13,3 +13,4 @@ git push origin master
 touch ImageWrite.pro src/main.cpp
 
 git status
+git add .
