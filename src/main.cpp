@@ -5,7 +5,13 @@
 int main()
 {
   std::cout<<"working\n";
-  ImageWrite myImage(200,200);
-  myImage.setPixel(400,50,255,255,255);
+  ImageWrite myImage(400,400);
+  for(int y=0; y<400; ++y)
+  for(int x=0; x<400; ++x)
+  {
+    myImage.setPixel(x,y,rand()%255,rand()%255,rand()%255);
+  }
+  //myImage.clear(255,0,0);
+  myImage.save("test.ppm");
   return EXIT_SUCCESS;
 }

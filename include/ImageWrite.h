@@ -12,6 +12,7 @@ class ImageWrite
     void save(const std::string &_fname);
     void setPixel(int _x, int _y, unsigned char r,
                   unsigned char _g, unsigned char _b);
+    void clear(unsigned char _r, unsigned char _g, unsigned char _b);
   private :
     int m_width;
     int m_height;

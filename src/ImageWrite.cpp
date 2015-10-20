@@ -1,5 +1,8 @@
 #include "ImageWrite.h"
+
 #include <cassert>
+#include <fstream>
+#include <iostream>
 
 ImageWrite::ImageWrite(int _w, int _h)
 {
@@ -16,9 +19,38 @@ ImageWrite::~ImageWrite()
   }
 }
 
+void ImageWrite::clear(unsigned char _r, unsigned char _g, unsigned char _b)
+{
+  for(int y=0; y<m_height; ++y)
+  {
+    for(int x=0; x<m_width; ++x)
+    {
+      setPixel(x,y,_r,_g,_b);
+    }
+  }
+}
+
 void ImageWrite::save(const std::string &_fname)
 {
+  std::ofstream output;
+  output.open(_fname);
+  if(!output.is_open())
+  {
+    std::cerr<<"Problem opening file "<<_fname<<"\n";
+    exit(EXIT_FAILURE);
+  }
 
+  // write header
+  output<<"P3\n";
+  output<<m_width<<" "<<m_height<<"\n";
+  output<<"255\n";
+  unsigned int index=-1;
+  for(int x=0; x<m_height*m_width*3; ++x)
+    {
+      output<<(int)m_data[++index]<<" ";
+    }
+  output<<"\n";
+  output.close();
 }
 
 void ImageWrite::setPixel(int _x, int _y, unsigned char _r, unsigned char _g, unsigned char _b)
