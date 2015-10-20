@@ -22,4 +22,4 @@ git add .
 
 #Continue from last session
 
-
+Created the image using PPM file format
