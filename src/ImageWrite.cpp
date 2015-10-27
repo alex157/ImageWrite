@@ -61,3 +61,24 @@ void ImageWrite::setPixel(int _x, int _y, unsigned char _r, unsigned char _g, un
   m_data[index+1]=_g;
   m_data[index+2]=_b;
 }
+
+void ImageWrite::bresenhams(int x0, int y0, int x1, int y1)
+{
+  int dx = x1 - x0;
+  int dy = y1 - y0;
+  int d = 2*dy - dx;
+  setPixel(x0,y0,255,255,255);
+  int y = y0;
+
+  for(int x=x0; x<x1; x++)
+  {
+    setPixel(x,y,255,255,255);
+    d = d + (2*dy);
+    if(d > 0)
+    {
+      y=y+1;
+      d = d -(2*dx);
+    }
+
+  }
+}

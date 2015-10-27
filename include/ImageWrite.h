@@ -13,6 +13,7 @@ class ImageWrite
     void setPixel(int _x, int _y, unsigned char r,
                   unsigned char _g, unsigned char _b);
     void clear(unsigned char _r, unsigned char _g, unsigned char _b);
+    void bresenhams(int x0, int y0, int x1, int y1);
   private :
     int m_width;
     int m_height;
