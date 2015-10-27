@@ -23,3 +23,6 @@ git add .
 #Continue from last session
 
 Created the image using PPM file format
+
+#Adding Bresenham's line algorithm
+Plotting a line on the image
